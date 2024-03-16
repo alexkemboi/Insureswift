@@ -37,7 +37,7 @@ export default function Navbar() {
 	const iconstyle = "black";
 	return (
 		<>
-			<Box sx={{ flexGrow: 1 }}>
+			<Box sx={{ flexGrow: 1 }} className="mb-15">
 				<AppBar
 					sx={{ backgroundColor: "#fafafa" }}
 					className="flex justify-between h-15 text-black">
