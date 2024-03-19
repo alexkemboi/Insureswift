@@ -4,7 +4,7 @@ import Login from "@/components/login/login";
 
 const LoginPage = () => {
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-[#F5F5F5]  min-h-screen">
       <Login />
     </div>
   );

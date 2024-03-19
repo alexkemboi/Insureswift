@@ -22,7 +22,7 @@ const AreaChart = () => {
   const [options, setOptions] = useState({
     chart: {
       height: 350,
-      type: 'area', // Make sure 'type' is set to a valid chart type, e.g., 'area'
+      type: 'area', 
     },
     dataLabels: {
       enabled: false,

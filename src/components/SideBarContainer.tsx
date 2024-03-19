@@ -1,90 +1,26 @@
-// "use client"
-// import * as React from "react";
-// import Divider from "@mui/material/Divider";
-// import { SideBarContext } from "@/context/SideBarContext";
-// import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-// import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-// import IconButton from "@mui/material/IconButton";
-// import { styled, useTheme } from "@mui/material/styles";
-// import SideBar from "./SideBarContent";
-// import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-// import SubSideBar from "../SideNavContainer/Subcontainer";
-// import logo from "../../../public/image/logo.png";
-// import Image from "next/image";
+import React from 'react';
+import { Sidebar, Menu, SubMenu, MenuItem } from "react-pro-sidebar";
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import PaymentIcon from '@mui/icons-material/Payment';
+import GavelIcon from '@mui/icons-material/Gavel';
+import SettingsIcon from '@mui/icons-material/Settings';
+const SideBarComponent = () => {
+  return (
+   <>
+                        	<Sidebar>
+									<Menu>
+										<h4 className="text-gray-500 mx-4">General</h4>
+										<SubMenu label="Charts" className="hidden">
+										</SubMenu>
+										<MenuItem > <AssignmentTurnedInIcon className="text-gray-500 text-4xl mx-4"/>Apply Cover </MenuItem>
+										<MenuItem> <PaymentIcon className="text-gray-500 text-4xl mx-4"/>Pay premium </MenuItem>
+										<MenuItem> <GavelIcon className="text-gray-500 text-4xl mx-4"/>Make Claim </MenuItem>
+										<h4 className="text-gray-500 mx-4">Advanced Features</h4>
+										<MenuItem> <SettingsIcon className="text-gray-500 text-4xl mx-4"/>System Setup </MenuItem>
+									</Menu>
+								</Sidebar>
+   </>
+  );
+};
 
-
-// type Anchor = "left";
-// const DrawerHeader = styled("div")(({ theme }) => ({
-// 	display: "flex",
-// 	alignItems: "center",
-// 	padding: theme.spacing(0, 1),
-// 	// necessary for content to be below app bar
-// 	...theme.mixins.toolbar,
-// 	justifyContent: "space-between",
-// }));
-
-// export default function TemporaryDrawer() {
-// 	// const [state, setState] = React.useState({
-// 	//   top: false,
-// 	//   left: false,
-// 	//   bottom: false,
-// 	//   right: false,
-// 	// });
-// 	const { state, setState, subContainer } = React.useContext(SideBarContext);
-// 	const theme = useTheme();
-// 	const [open, setOpen] = React.useState(false);
-
-// 	const handleDrawerClose = () => {
-// 		setState({ ...state, ["left"]: false });
-// 	};
-
-// 	const toggleDrawer =
-// 		(anchor: Anchor, open: boolean) =>
-// 			(event: React.KeyboardEvent | React.MouseEvent) => {
-// 				if (
-// 					event.type === "keydown" &&
-// 					((event as React.KeyboardEvent).key === "Tab" ||
-// 						(event as React.KeyboardEvent).key === "Shift")
-// 				) {
-// 					return;
-// 				}
-
-// 				setState({ ...state, [anchor]: open });
-// 			};
-
-
-
-// 	return (
-// 		<div>
-// 			{(["left"] as const).map((anchor) => (
-// 				<React.Fragment key={anchor}>
-// 					<SwipeableDrawer
-// 						anchor={anchor}
-// 						open={state[anchor]}
-// 						className="fixed"
-// 						onOpen={toggleDrawer(anchor, true)}
-// 						onClose={toggleDrawer(anchor, false)}
-// 					>
-// 						<DrawerHeader>
-// 							<Image width={200} height={30} src={logo} alt="logo" />
-// 							<IconButton onClick={handleDrawerClose}>
-// 								{theme.direction === "ltr" ? (
-// 									<ChevronLeftIcon />
-// 								) : (
-// 									<ChevronRightIcon />
-// 								)}
-// 							</IconButton>
-// 						</DrawerHeader>
-// 						<Divider className="mb-2" style={{
-// 							borderTop:"2px solid #1F5780", /* You can change the color (#00f) to your preferred color */
-// 							margin: "8px 0", /* Adjust margin as needed */
-// 							borderRadius: "5px"
-// 						}}/>
-
-// 						{!subContainer ? <SideBar /> : <SubSideBar />}
-// 					</SwipeableDrawer>
-// 				</React.Fragment>
-// 			))}
-// 		</div>
-// 	);
-// }
+export default SideBarComponent;

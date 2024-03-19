@@ -8,7 +8,9 @@ class PieChart extends React.Component {
 
         this.state = {
 
-            series: [44, 55, 41, 17, 15],
+            series: [
+              60,100,200
+              ],
             options: {
                 chart: {
                     width: "100%",
@@ -32,7 +34,7 @@ class PieChart extends React.Component {
                     }
                 },
                 title: {
-                    text: 'Company overview'
+                    text: 'Product overview'
                 },
                 responsive: [{
                     breakpoint: 480,

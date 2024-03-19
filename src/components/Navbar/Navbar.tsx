@@ -37,23 +37,14 @@ export default function Navbar() {
 	const iconstyle = "black";
 	return (
 		<>
-			<Box sx={{ flexGrow: 1 }} className="mb-15">
-				<AppBar
-					sx={{ backgroundColor: "#fafafa" }}
-					className="flex justify-between h-15 text-black">
-					<Toolbar className="flex justify-between">
-						<IconButton
-							size="large"
-							aria-label="account of current user"
-							aria-controls="menu-appbar"
-							aria-haspopup="true"
-							color="inherit"
-                            className="text-blue-200">
-							<MenuIcon className="text-black text-4xl"/>
-							<h6 className="pl-4 text-black text-2sm">Pendo-bakery</h6>
-						</IconButton>
-
-						
+			<Box sx={{ flexGrow: 1 }} className="mt-20 bg-cyan-600">
+				<AppBar					
+					className="flex justify-between h-15 text-slate-50 bg-cyan-600">
+					<Toolbar className="flex justify-between bg-cyan-600">
+						<div className="flex ">
+							<MenuIcon className="text-slate-50 text-4xl mx-4"/>
+							<h6 className="pl-4 text-slate-50 text-2xl font-semibold">Insure Swift</h6>
+						</div>						
 							<div className="flex">
 								<Typography
 									fontSize={14}
@@ -95,7 +86,7 @@ export default function Navbar() {
 									<Tooltip
 										title="About"
 										arrow
-										className="text-blue">
+										className="text-slate-50">
 										<IconButton
 											size="large"
 											edge="start"
@@ -112,7 +103,7 @@ export default function Navbar() {
 									<Tooltip
 										title="Change password"
 										arrow
-										className="text-blue">
+										className="text-slate-50">
 										<IconButton
 											size="large"
 											edge="start"
@@ -130,8 +121,7 @@ export default function Navbar() {
 									aria-haspopup="true"
 									onClick={handleMenu}
 									color="inherit">
-									{/* <AccountCircle className={iconstyle} />
-									 */}
+									
 									<Image
 										width={30}
 										height={20}
@@ -153,15 +143,14 @@ export default function Navbar() {
 										horizontal: "right"
 									}}
 									open={Boolean(anchorEl)}
-									onClose={handleClose}>
-									<MenuItem onClick={handleClose}>Profile</MenuItem>
-									<MenuItem onClick={handleClose}>My account</MenuItem>
-									<MenuItem onClick={handleLogout}>
+									onClose={handleClose}>										
+									<MenuItem onClick={handleClose} className="bg-slate-50">Profile</MenuItem>
+									<MenuItem onClick={handleClose} className="bg-slate-50">My account</MenuItem>
+									<MenuItem onClick={handleLogout} className="bg-slate-50">
 										Log out
 									</MenuItem>
 								</Menu>
-							</div>
-						
+							</div>						
 					</Toolbar>
 				</AppBar>
 			</Box>
