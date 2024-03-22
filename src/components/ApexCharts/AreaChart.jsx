@@ -2,7 +2,6 @@
 import dynamic from 'next/dynamic';
 import React, { useEffect, useState } from 'react';
 
-// Import ReactApexChart from 'react-apexcharts' asynchronously
 const DynamicReactApexChart = dynamic(() => import('react-apexcharts'), {
   ssr: false,
 });

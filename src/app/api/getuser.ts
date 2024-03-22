@@ -1,9 +1,8 @@
 "use server"
-import { NextResponse } from "next/server";
 import ConnectMysql from "./mysql";
-export default async function getServerSideProps() {
+export default async function getServerSideProps(credentials:any) {
     try{
-          const [rows] = await (await ConnectMysql()).promise().query('select * from users');
+      const [rows] = await (await ConnectMysql()).promise().query(`SELECT * FROM users WHERE UserName = '${credentials.username}' AND PhoneNumber = '${credentials.password}'`);
           console.log("server",rows);
           return {
               props: {

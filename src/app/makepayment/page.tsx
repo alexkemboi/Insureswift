@@ -1,20 +1,20 @@
 "use client"
-import React from "react";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/Navbar";
+import React from "react";
 import SideBarComponent from "@/components/SideBarContainer";
-import MakeClaim from "@/components/Claim/Claim";
+import MakePayment from "@/components/Payment/Payment";
 import Layout from "@/components/layout";
 
-const MakeClaimPage = () => {
+const PaymentPage = () => {
   return (
 
-    <div >
-      <Layout children={<MakeClaim />} />
+    <div>
+      <Layout children={<MakePayment />} />
     </div>
 
   );
 };
 
-export default MakeClaimPage;
+export default PaymentPage;
 

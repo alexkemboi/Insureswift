@@ -14,11 +14,12 @@ import LockOpenSharpIcon from "@mui/icons-material/LockOpenSharp";
 import Tooltip from "@mui/material/Tooltip";
 import FeedSharpIcon from "@mui/icons-material/FeedSharp";
 import profilepivc from "../../../public/image/autquiaut.png";
+import insure from "../../../public/image/free-insurance-1817174-1538042.png";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
-    const router = useRouter();
+	const router = useRouter();
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorEl(event.currentTarget);
@@ -27,24 +28,31 @@ export default function Navbar() {
 	const handleClose = () => {
 		// Your function logic
 	};
-    
+
 	const handleLogout = async () => {
-        setAnchorEl(null);
-        router.push('/login');
+		setAnchorEl(null);
+		router.push('/login');
 		// setLoading(true)
 	};
 
 	const iconstyle = "black";
 	return (
 		<>
-			<Box sx={{ flexGrow: 1 }} className="mt-20 bg-cyan-600">
-				<AppBar					
-					className="flex justify-between h-15 text-slate-50 bg-cyan-600">
-					<Toolbar className="flex justify-between bg-cyan-600">
-						<div className="flex ">
-							<MenuIcon className="text-slate-50 text-4xl mx-4"/>
-							<h6 className="pl-4 text-slate-50 text-2xl font-semibold">Insure Swift</h6>
-						</div>						
+			<div className="fixed bottom-0  w-full">
+				<Box sx={{ flexGrow: 1 }} className="mt-20 mb-20 bg-cyan-600">
+					<AppBar
+						className="flex justify-between h-15 text-slate-50 bg-cyan-600">
+						<Toolbar className="flex justify-between bg-cyan-600">
+							<div className="flex ">
+								<Image
+									width={30}
+									height={20}
+									src={insure}
+									alt="pic"
+									className="rounded-lg items-center justify-center"
+								/>
+								<h6 className="hidden pl-4 text-slate-50 text-2xl font-semibold xs:hidden sm:hidden md:block lg:block">Insure Swift</h6>
+							</div>
 							<div className="flex">
 								<Typography
 									fontSize={14}
@@ -52,7 +60,7 @@ export default function Navbar() {
 									<Tooltip
 										title="Help"
 										arrow
-										>
+									>
 										<IconButton
 											size="large"
 											edge="start"
@@ -76,7 +84,7 @@ export default function Navbar() {
 											color="inherit"
 											aria-label="menu"
 											sx={{ mr: 2 }}>
-											<AddIcCallSharpIcon className={iconstyle}/>
+											<AddIcCallSharpIcon className={iconstyle} />
 										</IconButton>
 									</Tooltip>
 								</Typography>
@@ -121,7 +129,7 @@ export default function Navbar() {
 									aria-haspopup="true"
 									onClick={handleMenu}
 									color="inherit">
-									
+
 									<Image
 										width={30}
 										height={20}
@@ -143,17 +151,18 @@ export default function Navbar() {
 										horizontal: "right"
 									}}
 									open={Boolean(anchorEl)}
-									onClose={handleClose}>										
+									onClose={handleClose}>
 									<MenuItem onClick={handleClose} className="bg-slate-50">Profile</MenuItem>
 									<MenuItem onClick={handleClose} className="bg-slate-50">My account</MenuItem>
 									<MenuItem onClick={handleLogout} className="bg-slate-50">
 										Log out
 									</MenuItem>
 								</Menu>
-							</div>						
-					</Toolbar>
-				</AppBar>
-			</Box>
+							</div>
+						</Toolbar>
+					</AppBar>
+				</Box>
+			</div>
 		</>
 	);
 }

@@ -2,7 +2,7 @@ import { Button, TextField, Grid, Typography } from '@mui/material';
 
 const MakePayment = () => {
   return (
-    <div className="p-4">
+    <div className="p-4 w-full border border-solid m-10">
       <Typography variant="h4" className="mb-4">Make Insurance Payment</Typography>
       <Grid container spacing={2}>
         <Grid item xs={12}>

@@ -9,25 +9,17 @@ import GavelIcon from '@mui/icons-material/Gavel';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ApplyCover from "@/components/ApplyCover/ApplyCover";
 import SideBarComponent from "@/components/SideBarContainer";
-const DashboardPage = () => {
-  return (   
-    <div className="bg-[#F5F5F5] h-full">
-      <div>
-			<Navbar />
-				<div className="flex flex-row justify-between w-full bg-[#f8fafc]">
-					<div className="w-1/5">
-							<SideBarComponent/>
-					</div>
-          <div className="w-auto m-10">
-              <ApplyCover/>
-          </div>
-				
-				<Footer/>			
-				</div>
-			</div>
+import Layout from "@/components/layout";
+
+const ApplyCoverPage = () => {
+  return (
+
+    <div >
+      <Layout children={<ApplyCover />} />
     </div>
+
   );
 };
 
-export default DashboardPage;
+export default ApplyCoverPage;
 
