@@ -9,13 +9,13 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     return (
-        <div className='flex-col md:flex  h-screen w-screen'>
+        <div className='h-screen'>
             <Navbar />
-            <div className='w-full md:w-full  md:flex'>
-                <div className='w-full md:block md:w-1/5 bg-cyan-600 '>
+            <div className='w-full xs:flex-col md:w-full md:flex md:justify-between'>
+                <div className='w-1/5 md:block'>
                     <SideBarComponent />
                 </div>
-                <div className='overflow-y-auto h-full md:w-4/5 p-4 mt-20'>
+                <div className='overflow-y-auto h-full md:align-center md:justify-center w-4/5 m-auto'>
                     {children}
                 </div>
             </div>

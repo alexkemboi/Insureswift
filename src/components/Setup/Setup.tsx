@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DataGridPremiumDemo from '../table';
 
 const SystemSetup: React.FC = () => {
     const [parameters, setParameters] = useState<string[]>([]);
@@ -17,8 +18,9 @@ const SystemSetup: React.FC = () => {
     };
 
     return (
-        <div className="p-4 border border-solid m-20">
+        <div className="p-4 border border-solid overflow-y-scroll h-96">
             <h2 className="text-2xl font-bold mb-4">System Setup</h2>
+            <DataGridPremiumDemo />
             <div className="mb-4">
                 <label htmlFor="parameter" className="mr-2">Parameter:</label>
                 <input type="text" id="parameter" value={selectedParameter} onChange={(e) => setSelectedParameter(e.target.value)} className="border border-gray-300 rounded px-2 py-1" />

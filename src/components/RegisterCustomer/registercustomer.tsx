@@ -53,7 +53,7 @@ const Register = () => {
   }, [])
 
   return (
-    <div className='flex-col  p-4 w-full border border-solid m-10'>
+    <div className='flex-col  p-4 w-4/5 border border-solid m-auto'>
       <div>{error && (<h1>{error}</h1>)}</div>
       <form onSubmit={handleSubmit} className="w-full">
         <h1 className='font-bold text-2xl'>Customer Registration</h1>

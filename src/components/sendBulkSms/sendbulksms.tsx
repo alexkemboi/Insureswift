@@ -93,25 +93,27 @@ const SendSMSComponent = () => {
 
   return (
     <div className="p-4 m-10 border border-solid-red rounded w-4/5 overflow-y-scroll h-96">
-      <h4 className='text-2xl font-bold'>Send Sms</h4>
+      <h4 className='text-2xl font-bold'>Audit Log</h4>
       <button className="bg-blue-500 hover:bg-blue-700 text-gray-50 font-bold py-2 px-4 rounded mr-2" onClick={() => fetchData('users')}>Fetch Data</button>
       <button className="bg-green-500 hover:bg-green-700 text-gray-50 font-bold py-2 px-4 rounded" onClick={() => sendSms({ case: "1" })}>Send Bulk</button>
       <table className="table-auto mt-2 w-full h-auto">
         <thead>
           <tr>
             <th className=" border px-4 py-2">User Name</th>
-            <th className=" border px-4 py-2">Pledge Amount</th>
-            <th className=" border px-4 py-2">Paid Amount</th>
+            <th className=" border px-4 py-2">Phone Number</th>
+            {/* <th className=" border px-4 py-2">Pledge Amount</th>
+            <th className=" border px-4 py-2">Paid Amount</th> */}
             <th className=" border px-4 py-2">Balance</th>
             <th className="border px-4 py-2">Action</th>
           </tr>
         </thead>
         <tbody>
-          {userdata.filter((rows) => rows.visible === 1).map((row: any) => (
+          {userdata.filter((rows) => rows.UserName === "UG HACKATHON").map((row: any) => (
             <tr key={row.UserId} className="bg-gray-100">
               <td className="border px-4 py-2">{row.UserName}</td>
-              <td className="border px-4 py-2">{row.PledgeAmount}</td>
-              <td className="border px-4 py-2">{row.AmountPaid}</td>
+              <td className="border px-4 py-2">{row.PhoneNumber}</td>
+              {/* <td className="border px-4 py-2">{row.PledgeAmount}</td>
+              <td className="border px-4 py-2">{row.AmountPaid}</td> */}
               <td className="border px-4 py-2">{row.PledgeAmount - row.AmountPaid}</td>
               <td className="border px-4 py-2"><button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded" onClick={() => sendSms({ username: row.UserName, to: row.PhoneNumber, case: "2", balance: (row.PledgeAmount - row.AmountPaid), pledge: row.PledgeAmount })}>Send SMS</button></td>
             </tr>

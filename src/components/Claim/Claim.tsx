@@ -1,6 +1,6 @@
 const MakeClaim = () => {
   return (
-    <div className="p-4 w-full border border-solid m-10">
+    <div className="p-4 w-4/5 border border-solid m-auto">
       <h1 className="text-2xl font-bold mb-4">Make a Claim</h1>
       <form className="space-y-4">
         <div>

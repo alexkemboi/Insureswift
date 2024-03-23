@@ -5,7 +5,7 @@ import Layout from "@/components/layout";
 
 const SendSmsPage = () => {
   return (
-    <div >
+    <div className="m-2" >
       <Layout children={<SendSMSComponent />} />
     </div>
 

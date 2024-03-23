@@ -10,7 +10,7 @@ import SystemSetup from "@/components/Setup/Setup";
 const SetupPage = () => {
   return (
 
-    <div className='m-10 border border-solid rounded p-4' >
+    <div className='m-2 border border-solid rounded ' >
       <Layout children={<SystemSetup />} />
     </div>
 

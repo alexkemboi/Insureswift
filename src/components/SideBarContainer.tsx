@@ -21,7 +21,7 @@ const SideBarComponent = () => {
 				{ icon: <GavelIcon className="text-gray-500 text-4xl mx-4" />, text: 'Make Claim', link: '/claim' },
 				{ icon: <WalletIcon className="text-gray-500 text-4xl mx-4" />, text: 'Wallet', link: '/Wallet' },
 				{ icon: <HowToRegIcon className="text-gray-500 text-4xl mx-4" />, text: 'Register Customer', link: '/registercustomer' },
-				{ icon: <SmsIcon className="text-gray-500 text-4xl mx-4" />, text: 'Sms', link: '/sendsmscomponent' }
+				{ icon: <SmsIcon className="text-gray-500 text-4xl mx-4" />, text: 'Log', link: '/sendsmscomponent' }
 			]
 		},
 		{
@@ -34,8 +34,7 @@ const SideBarComponent = () => {
 	];
 	return (
 		<>
-			<div className='mt-20'>
-
+			<div className='mt-20 mr-4'>
 				<Sidebar rootStyles={{
 					[`.${sidebarClasses.container}`]: {
 						backgroundColor: "transparent",

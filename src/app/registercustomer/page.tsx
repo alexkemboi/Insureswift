@@ -7,7 +7,7 @@ import Layout from "@/components/layout";
 const RegisterPage = () => {
   return (
 
-    <div >
+    <div className="m-2" >
       <Layout children={<Register />} />
     </div>
 
