@@ -4,8 +4,8 @@ import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useRouter } from 'next/navigation';
 import getServerSideProps from "@/app/api/getuser";
-
-
+import Image from "next/image";
+import insure from "../../../public/image/free-insurance-1817174-1538042.png";
 const Login = () => {
 	const [data, setData] = useState<any>([]);
 	const [error, setError] = useState<boolean>(false);
@@ -58,8 +58,14 @@ const Login = () => {
 
 	return (
 		<div className="min-h-screen flex items-center justify-center">
-			<form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full sm:w-96">
-				<MenuIcon className="text-black text-4xl mr-4" />
+			<form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full sm:w-96 flex-col">
+				<Image
+					width={120}
+					height={80}
+					src={insure}
+					alt="pic"
+					className="rounded-lg items-center justify-center text-center m-auto"
+				/>
 				<h1 className="font-bold text-2xl text-center mb-1 text-blue-500 rounded  hover:text-blue-700">
 					Insure Swift
 				</h1>

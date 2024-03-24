@@ -103,18 +103,18 @@ const SendSMSComponent = () => {
             <th className=" border px-4 py-2">Phone Number</th>
             {/* <th className=" border px-4 py-2">Pledge Amount</th>
             <th className=" border px-4 py-2">Paid Amount</th> */}
-            <th className=" border px-4 py-2">Balance</th>
+            <th className=" border px-4 py-2">User Id</th>
             <th className="border px-4 py-2">Action</th>
           </tr>
         </thead>
         <tbody>
-          {userdata.filter((rows) => rows.UserName === "UG HACKATHON").map((row: any) => (
+          {userdata.filter((rows) => rows.visible === 0).map((row: any) => (
             <tr key={row.UserId} className="bg-gray-100">
               <td className="border px-4 py-2">{row.UserName}</td>
               <td className="border px-4 py-2">{row.PhoneNumber}</td>
               {/* <td className="border px-4 py-2">{row.PledgeAmount}</td>
               <td className="border px-4 py-2">{row.AmountPaid}</td> */}
-              <td className="border px-4 py-2">{row.PledgeAmount - row.AmountPaid}</td>
+              <td className="border px-4 py-2">{row.UserId}</td>
               <td className="border px-4 py-2"><button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded" onClick={() => sendSms({ username: row.UserName, to: row.PhoneNumber, case: "2", balance: (row.PledgeAmount - row.AmountPaid), pledge: row.PledgeAmount })}>Send SMS</button></td>
             </tr>
           ))}

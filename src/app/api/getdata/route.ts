@@ -4,7 +4,8 @@ import ConnectMysql from '../mysql';
 export async function POST(req:Request, res:any) {
     const requestData =  await req.json();
     try {
-      const [rows] = await (await ConnectMysql()).promise().query(`SELECT * FROM ${requestData.table}`);     
+      const [rows] = await (await ConnectMysql()).promise().query(`SELECT * FROM ${requestData.table}`);
+      console.log("server", rows);  
       return NextResponse.json({ message: rows});
    
   } catch (error) {

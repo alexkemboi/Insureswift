@@ -49,7 +49,7 @@ const Register = () => {
     }
   };
   useEffect(() => {
-    setUsersData(getdta());
+    // setUsersData(getdta());
   }, [])
 
   return (
@@ -58,9 +58,10 @@ const Register = () => {
       <form onSubmit={handleSubmit} className="w-full">
         <h1 className='font-bold text-2xl'>Customer Registration</h1>
         <div className='flex-column md:flex '>
-          <div className='w-full md:w-1/3 lg:w-1/4 border border-solid border-gray-500 m-2 p-2'>
+          <div className='w-full md:w-full lg:w-full border border-solid border-gray-500 m-2 p-2'>
             {success && (<h4 className='text-sm font-bold text-green-500 text-center'>Successfully saved</h4>)}
-            <div className="mb-4">
+            <div className="mb-4 flex-col justify-between">
+              <label>User Name</label>
               <input
                 type="text"
                 value={userName}
@@ -70,7 +71,8 @@ const Register = () => {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
-            <div className="mb-4">
+            <div className="mb-4 flex-col justify-between">
+              <label>Phone Number</label>
               <input
                 type="tel"
                 value={phoneNumber}
@@ -80,7 +82,8 @@ const Register = () => {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
-            <div className="mb-6">
+            <div className="mb-6 flex-col justify-between">
+              <label>User Profile</label>
               <input
                 type="text"
                 value={userProfile}
@@ -99,7 +102,7 @@ const Register = () => {
               </button>
             </div>
           </div>
-          <div className='sm:w-full md:w-2/3 lg:w-3/4'>
+          <div className='hidden sm:w-full md:w-2/3 lg:w-3/4'>
             <table className="min-w-full divide-y divide-gray-500 border border-gray-500">
               <thead>
                 <tr>

@@ -48,7 +48,7 @@ function sendMessage(message, phone) {
     message: `${message}`,    
     //from: "MPESA",
   };
-  //sms.send(options).then(console.log).catch(console.log);
+ sms.send(options).then(console.log).catch(console.log);
 }
 
 app.post("/SendSms", (req, res) => {
@@ -64,11 +64,12 @@ app.post('/ussd', async (req, res) => {
     sendMessage(`Thank you for using INSURE SWIFT service`, phoneNumber);
     registerUser(phoneNumber)
     response = `CON Hello, it's INSURE SWIFT. Please select an option:    
-    1. REGISTER
+    1. REGISTRATION STATUS
     2. APPLY FOR COVER
     3. WALLET
     4. MAKE CLAIM
-    5. Press 0 to exit`;
+    5. MAKE PAYMENT
+    6. Press 0 to exit`;
   } else if (text == '1') {     
     response = `END ${await getDetails(phoneNumber)}`;  
      }
@@ -76,16 +77,26 @@ app.post('/ussd', async (req, res) => {
     response = `CON To apply for cover choose a type
     1. HEALTH
     2. MOTOR VEHICLE
-    3. Press 0 to exit`;       
+    3. LIFE ASSURANCE
+    4. Press 0 to exit`;       
   }
   else if (text == '2*2') { 
     sendMessage(`Thank you for applying for the MOTOR VEHICLE`, phoneNumber);
     response = `END Thank you for applying for the MOTOR VEHICLE`;  
      }
-  else if (text == '3') {    
-    response = `END Your Wallet balance is UGX 50,000`; 
-   
+     else if (text == '2*3') { 
+      sendMessage(`Thank you for applying for the LIFE ASSURANCE`, phoneNumber);
+      response = `END Thank you for applying for the LIFE ASSURANCE`;  
+       }
+       else if (text == '2*1') { 
+        sendMessage(`Thank you for applying for the HEALTH INSUARANCE`, phoneNumber);
+        response = `END Thank you for applying for the HEALTH INSUARANCE`;  
+         }
+  else if (text == '3') {
+    sendMessage(`${await getBalance(phoneNumber)}`, phoneNumber);
+    response = `END ${await getBalance(phoneNumber)}`;  
   }
+    
   else if (text == '4') {     
     response = `END Do you want to proceed and make a claim?`;       
   }
@@ -111,6 +122,30 @@ function registerUser(phoneNumber){
       });}
   );
 }
+function getBalance(phoneNumber){
+  let query=''
+  return new Promise((resolve, reject) => {
+    query = `SELECT Balance from balances WHERE AccountNumber = ${phoneNumber}`;
+    connection.query(query, (err, results) => {
+      if (err) {
+        console.error('Error executing the SQL query:', err);
+        console.log('Failed to fetch results');
+        reject({ error: 'Failed to fetch results' });
+        return; 
+      }         
+      const balance = results && results.length > 0 ? results[0].Balance : '';
+      if(balance==''){
+        const responseResults="Your balance is UGX 0.00 Thank you for using INSURE SWIFT";
+        resolve(responseResults);
+      }else{
+        const responseResults = `You balance is UGX ${balance}.Thank you for using INSURE SWIFT`;
+        sendMessage(`You balance is UGX ${balance}.Thank you for using INSURE SWIFT`, phoneNumber);
+        resolve(responseResults);
+      }
+    }
+    );
+  }); 
+}
 function getDetails(phoneNumber) {
     let query=''
   return new Promise((resolve, reject) => {
@@ -123,11 +158,11 @@ function getDetails(phoneNumber) {
         return; 
       }         
       const firstName = results && results.length > 0 ? results[0].UserName : '';
-      if(firstName==''){
-        const responseResults="Sorry,you are not registered.Please Register";
+      if(firstName=="UG HACKATHON"){
+        const responseResults="Sorry,you are not registered.Please Register to INSURE SWIFT";
         resolve(responseResults);
-      }else{
-        const responseResults = `${firstName} you are a member of INSURE SWIFT`;
+      }else {
+        const responseResults = `Thank you ${firstName} ,you are a member of INSURE SWIFT`;
         resolve(responseResults);
       }
     }

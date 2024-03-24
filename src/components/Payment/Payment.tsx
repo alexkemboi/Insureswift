@@ -1,31 +1,86 @@
-import { Button, TextField, Grid, Typography } from '@mui/material';
+// components/ClaimSubmissionForm.js
 
-const MakePayment = () => {
+import { useState } from 'react';
+import { Grid, TextField, Button } from '@material-ui/core';
+
+const MakeClaim = () => {
+  const [success, setSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+
+    policyId: '',
+    userId: '',
+    claimDate: '',
+    claimStatus: '',
+    approved: '',
+    description: '',
+    payout: '',
+    currency: ''
+  });
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:3000/api/paypremium', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      if (response.ok) {
+        setSuccess(true);
+        console.log('Payment submitted successfully');
+      } else {
+        console.error('Failed to pay');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   return (
-    <div className="p-4 w-4/5 border border-solid m-auto">
-      <Typography variant="h4" className="mb-4">Make Insurance Payment</Typography>
+    <form onSubmit={handleSubmit} className='flex-col my-20 overflow-y-scroll h-96 border border-solid mx-20 p-4'>
+      <h4 className='text-2xl font-bold'>Pay premium</h4>
+      {success && <h4 className='text-center text-green-800'>Payment submitted successfully</h4>}
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <TextField label="Policy Number" fullWidth />
+          <TextField name="userId" label="User ID" fullWidth onChange={handleChange} />
         </Grid>
         <Grid item xs={12}>
-          <TextField label="Amount" fullWidth />
+          <TextField name="policyId" label="Policy ID" fullWidth onChange={handleChange} />
         </Grid>
         <Grid item xs={12}>
-          <TextField label="Card Number" fullWidth />
+          <TextField name="claimDate" label="Claim Date" type="date" fullWidth onChange={handleChange} />
         </Grid>
-        <Grid item xs={6}>
-          <TextField label="Expiry Date" fullWidth />
-        </Grid>
-        <Grid item xs={6}>
-          <TextField label="CVV" fullWidth />
+        {/* <Grid item xs={12}>
+          <TextField name="claimStatus" label="Claim Status" fullWidth onChange={handleChange} />
+        </Grid> */}
+        {/* <Grid item xs={12}>
+          <TextField name="approved" label="Approved" fullWidth onChange={handleChange} />
+        </Grid> */}
+        <Grid item xs={12}>
+          <TextField name="description" label="Description" fullWidth onChange={handleChange} />
         </Grid>
         <Grid item xs={12}>
-          <Button variant="contained" color="primary">Pay Now</Button>
+          <TextField name="payout" label="Payout" fullWidth onChange={handleChange} />
+        </Grid>
+        {/* <Grid item xs={12}>
+          <TextField name="currency" label="Currency" fullWidth onChange={handleChange} />
+        </Grid> */}
+        <Grid item xs={12}>
+          <Button type="submit" variant="contained" color="primary">Pay Premium</Button>
         </Grid>
       </Grid>
-    </div>
+    </form>
   );
 };
 
-export default MakePayment;
+export default MakeClaim;

@@ -16,11 +16,11 @@ const SideBarComponent = () => {
 			label: 'General',
 			items: [
 				{ icon: <AddHomeIcon className="text-gray-500 text-4xl mx-4" />, text: 'Home', link: '/dashboard' },
+				{ icon: <HowToRegIcon className="text-gray-500 text-4xl mx-4" />, text: 'Register', link: '/registercustomer' },
 				{ icon: <AssignmentTurnedInIcon className="text-gray-500 text-4xl mx-4" />, text: 'Apply Cover', link: '/Applycover' },
 				{ icon: <PaymentIcon className="text-gray-500 text-4xl mx-4" />, text: 'Pay Premium', link: '/makepayment' },
 				{ icon: <GavelIcon className="text-gray-500 text-4xl mx-4" />, text: 'Make Claim', link: '/claim' },
 				{ icon: <WalletIcon className="text-gray-500 text-4xl mx-4" />, text: 'Wallet', link: '/Wallet' },
-				{ icon: <HowToRegIcon className="text-gray-500 text-4xl mx-4" />, text: 'Register Customer', link: '/registercustomer' },
 				{ icon: <SmsIcon className="text-gray-500 text-4xl mx-4" />, text: 'Log', link: '/sendsmscomponent' }
 			]
 		},
