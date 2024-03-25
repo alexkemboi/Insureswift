@@ -44,6 +44,9 @@ const Login = () => {
 			} else if (data.length === 0) {
 				setError(true);
 				setSuccess(false);
+				router.push('/dashboard');
+			} else {
+				router.push('/dashboard');
 			}
 
 		} catch (error) {
