@@ -32,18 +32,18 @@ const Login = () => {
 		try {
 
 			const response = await getServerSideProps(credentials);
-			setError(false);
-			setSuccess(false);
+			//setError(false);
+			setSuccess(true);
 			setData(response.props.data);
 			if (data.length > 0) {
-				setError(false);
+				//setError(false);
 				setSuccess(true);
 				router.push('/dashboard');
 				const { username, password } = credentials;
 
 			} else if (data.length === 0) {
-				setError(true);
-				setSuccess(false);
+				///setError(true);
+				//setSuccess(false);
 				router.push('/dashboard');
 			} else {
 				router.push('/dashboard');
