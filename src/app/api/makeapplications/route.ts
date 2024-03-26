@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import ConnectMysql from '../mysql';
 
-export async function POST(req:Request, res:any) {
+export async function POST(req:any, res:any) {
     const { fullName, emailAddress, phoneNumber, insuranceType, dateOfBirth, agreeToTerms } =  await req.json();
     //const requestData =  await req.json();
     try {
@@ -13,3 +13,12 @@ export async function POST(req:Request, res:any) {
       return NextResponse.json({ message: 'Failed to submit application' });
     }
   }
+  export async function PUT() {
+    return NextResponse.json({ message: 'Hello - PUT' });
+  }
+  
+  export async function DELETE() {
+    return NextResponse.json({ message: 'Hello - DELETE' });
+  }
+ 
+ 

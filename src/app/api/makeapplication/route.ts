@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import ConnectMysql from '../mysql';
-export async function GET(req:any) {
+export async function GET() {
   try {
     const [rows] = await (await ConnectMysql()).promise().query(`SELECT * FROM users`);
     console.log("server", rows);  
@@ -8,16 +8,20 @@ export async function GET(req:any) {
  
 } catch (error) {
     console.error('Error fetching data:', error);    
-    return {
+    return NextResponse.json({
         props: {
             error: 'Failed to fetch data'
         }
-    };
+    });
   }
 }
 
 
 
+
+export async function POST() {
+  return NextResponse.json({ message: 'Hello - DELETE' });
+}
 
 export async function PUT() {
   return NextResponse.json({ message: 'Hello - PUT' });

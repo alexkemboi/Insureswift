@@ -7,11 +7,11 @@ export async function GET() {
               return NextResponse.json({ message: 'Hello - GET',data:rows });
                       } catch (error) {
             console.error('Error fetching data:', error);
-            return {
+            return NextResponse.json({
               props: {
                 error: 'Failed to fetch data'
               }
-            };
+            });
           } 
 }
 
@@ -24,6 +24,6 @@ export async function PUT() {
   return NextResponse.json({ message: 'Hello - PUT' });
 }
 
-export default async function DELETE() {
-  return NextResponse.json({ message: 'Hello - DELETE' });
-}
+// export default async function DELETE() {
+//   return NextResponse.json({ message: 'Hello - DELETE' });
+// }

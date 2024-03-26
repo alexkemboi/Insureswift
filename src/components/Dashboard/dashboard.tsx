@@ -19,7 +19,7 @@ const Dashboard = () => {
 		if (typeof window !== "undefined") {
 			setChart(() => require("react-apexcharts").default);
 		}
-	})
+	}, [])
 	return (
 		<div className="mb-5">
 			<div className="flex flex-col w-full">

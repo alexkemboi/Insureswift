@@ -13,3 +13,16 @@ export async function POST(req:Request, res:any) {
       return NextResponse.json({ message: "error"});
       };
     }
+
+    export async function PUT() {
+      return NextResponse.json({ message: 'Hello - PUT' });
+    }
+    
+    export async function DELETE() {
+      return NextResponse.json({ message: 'Hello - DELETE' });
+    }
+    export async function GET() {
+      return NextResponse.json({ message: 'Hello - PUT' });
+    }
+    
+ 
