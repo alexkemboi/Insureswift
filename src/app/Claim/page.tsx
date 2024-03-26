@@ -10,7 +10,9 @@ const MakeClaimPage = () => {
   return (
 
     <div >
-      <Layout children={<MakeClaim />} />
+      <Layout>
+        <MakeClaim />
+      </Layout>
     </div>
 
   );

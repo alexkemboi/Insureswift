@@ -11,7 +11,7 @@ const SetupPage = () => {
   return (
 
     <div className='m-2 border border-solid rounded ' >
-      <Layout children={<SystemSetup />} />
+      <Layout><SystemSetup /></Layout>
     </div>
 
   );

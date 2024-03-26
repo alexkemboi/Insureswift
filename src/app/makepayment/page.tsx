@@ -10,7 +10,7 @@ const PaymentPage = () => {
   return (
 
     <div>
-      <Layout children={<MakePayment />} />
+      <Layout ><MakePayment /></Layout>
     </div>
 
   );

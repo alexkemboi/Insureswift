@@ -15,7 +15,7 @@ const ApplyCoverPage = () => {
   return (
 
     <div >
-      <Layout children={<ApplyCover />} />
+      <Layout ><ApplyCover /></Layout>
     </div>
 
   );

@@ -6,7 +6,9 @@ import Layout from "@/components/layout";
 const DashboardPage = () => {
   return (
     <div className="bg-[#F5F5F5] h-full">
-      <Layout children={<Dashboard />} />
+      <Layout>
+        <Dashboard />
+      </Layout>
     </div>
   );
 };

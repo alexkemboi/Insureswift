@@ -8,7 +8,7 @@ const RegisterPage = () => {
   return (
 
     <div className="m-2" >
-      <Layout children={<Register />} />
+      <Layout ><Register /></Layout>
     </div>
 
 

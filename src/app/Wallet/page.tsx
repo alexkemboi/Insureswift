@@ -10,7 +10,7 @@ const WalletPage = () => {
   return (
 
     <div>
-      <Layout children={<Wallet />} />
+      <Layout ><Wallet /></Layout>
     </div>
 
   );
